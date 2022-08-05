@@ -14,7 +14,7 @@ const SORT_DIRECTION_PARAM = 'sdir'
 const WrapperRouter = (WrappedComponent) =>
   compose(withRouter)(({ router, ...props }) => {
     const { query, pathname } = router
-    const urlQuery = query[QUERY_PARAM]
+    const urlQuery = pathname === '/suche' ? query[QUERY_PARAM] : ''
     const urlFilter = {
       key: query[FILTER_KEY_PARAM] || DEFAULT_FILTER.key,
       value: query[FILTER_VALUE_PARAM] || DEFAULT_FILTER.value,
